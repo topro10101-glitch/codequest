@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeQuest - Learn Coding</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="sidebar">
+    <h2 class="logo">Code<span>Quest</span></h2>
+
+    <p class="side-title">LEARN</p>
+    <a href="#dashboard" class="nav active" data-page="dashboard">⌂ Dashboard</a>
+    <a href="#courses" class="nav" data-page="courses">▤ Courses</a>
+    <a href="#playground" class="nav" data-page="playground">⌘ Playground</a>
+    <a href="#quiz" class="nav" data-page="quiz">✦ Quiz</a>
+    <a href="#progress" class="nav" data-page="progress">◴ My progress</a>
+
+    <div class="sidebar-bottom">
+        <h3>Keep learning!</h3>
+        <p>Every expert was once a beginner.</p>
+    </div>
+</div>
+
+<main class="main">
+    <header class="topbar">
+        <button id="menuButton">☰</button>
+        <span>Learning space / <b id="pageName">Dashboard</b></span>
+        <span id="topProgress">0 lessons completed</span>
+    </header>
+
+    <!-- DASHBOARD -->
+    <section id="dashboard" class="page active">
+        <div class="hero">
+            <div>
+                <p class="eyebrow">YOUR CODING JOURNEY STARTS HERE</p>
+                <h1>Build skills.<br><span>Build anything.</span></h1>
+                <p>Learn programming, practice coding, and create your own projects.</p>
+                <button class="primary" data-go="courses">Explore courses →</button>
+                <button class="secondary" data-go="playground">Open playground</button>
+            </div>
+            <div class="hero-code">
+                <div class="dots">● ● ● <small>hello-world.js</small></div>
+                <pre><span>const</span> dream = "idea";
+
+<span>function</span> build() {
+  <span>return</span> dream + " + code";
+}
+
+console.log(build());</pre>
+            </div>
+        </div>
+
+        <div class="stats">
+            <div class="stat">
+                <small>COURSES</small>
+                <h2>4</h2>
+                <p>Learning paths</p>
+            </div>
+            <div class="stat">
+                <small>LESSONS DONE</small>
+                <h2 id="completedCount">0</h2>
+                <p>Keep going!</p>
+            </div>
+            <div class="stat">
+                <small>PROGRESS</small>
+                <h2 id="percentCount">0%</h2>
+                <p>Overall completion</p>
+            </div>
+            <div class="stat">
+                <small>YOUR LEVEL</small>
+                <h2 id="levelName">Starter</h2>
+                <p>Keep learning</p>
+            </div>
+        </div>
+
+        <div class="section-heading">
+            <h2>Learning paths</h2>
+            <button class="text-button" data-go="courses">All courses →</button>
+        </div>
+        <div id="dashboardCourses" class="course-grid"></div>
+
+        <div class="tip">
+            <h3>💡 Developer tip</h3>
+            <p>Don't just copy code. Change things, experiment, and see what happens. Making mistakes is part of learning!</p>
+        </div>
+    </section>
+
+    <!-- COURSES -->
+    <section id="courses" class="page">
+        <p class="eyebrow">YOUR LEARNING LIBRARY</p>
+        <h1>Explore <span>courses</span></h1>
+        <p class="muted">Choose a course and start learning.</p>
+        <div id="allCourses" class="course-grid"></div>
+    </section>
+
+    <!-- LESSON -->
+    <section id="lesson" class="page">
+        <button class="text-button" id="backCourses">← Back to courses</button>
+        <div id="lessonContent"></div>
+    </section>
+
+    <!-- PLAYGROUND -->
+    <section id="playground" class="page">
+        <p class="eyebrow">PRACTICE YOUR SKILLS</p>
+        <h1>Code <span>playground</span></h1>
+        <p class="muted">Write code and see the result instantly.</p>
+
+        <div class="playground">
+            <div class="editor">
+                <div class="tabs">
+                    <button class="tab active" data-tab="html">HTML</button>
+                    <button class="tab" data-tab="css">CSS</button>
+                    <button class="tab" data-tab="js">JavaScript</button>
+                </div>
+
+                <textarea id="codeEditor" spellcheck="false"></textarea>
+
+                <div class="editor-footer">
+                    <button id="resetCode" class="secondary">Reset</button>
+                    <button id="runCode" class="primary">▶ Run code</button>
+                </div>
+            </div>
+
+            <div class="preview">
+                <h3>LIVE PREVIEW</h3>
+                <iframe id="preview" title="Code preview" sandbox="allow-scripts"></iframe>
+            </div>
+        </div>
+        <p class="muted">Note: This playground runs HTML, CSS, and JavaScript. Java needs a separate Java environment.</p>
+    </section>
+
+    <!-- QUIZ -->
+    <section id="quiz" class="page">
+        <p class="eyebrow">TEST YOUR KNOWLEDGE</p>
+        <h1>Quick <span>quiz</span></h1>
+
+        <div class="quiz-box">
+            <div class="quiz-info">
+                <span id="questionNumber">QUESTION 1 / 5</span>
+                <span id="score">Score: 0</span>
+            </div>
+
+            <div class="progress-track">
+                <div id="quizProgress"></div>
+            </div>
+
+            <h2 id="question"></h2>
+            <div id="answers"></div>
+            <p id="feedback"></p>
+            <button id="nextQuestion" class="primary" disabled>Next question →</button>
+        </div>
+    </section>
+
+    <!-- PROGRESS -->
+    <section id="progress" class="page">
+        <p class="eyebrow">EVERY STEP COUNTS</p>
+        <h1>My <span>progress</span></h1>
+
+        <div class="progress-box">
+            <h2 id="bigPercent">0%</h2>
+            <p>Overall course completion</p>
+            <div class="progress-track">
+                <div id="bigProgress"></div>
+            </div>
+        </div>
+
+        <div id="progressCourses" class="progress-list"></div>
+        <button id="resetProgress" class="danger">Reset all progress</button>
+    </section>
+
+    <footer>
+        <b>Code<span>Quest</span></b>
+        <p>Learn a little. Build a lot.</p>
+    </footer>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
